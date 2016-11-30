@@ -9,6 +9,17 @@ flag, the picture is saved to that directory.
 
 var tessel = require('tessel');
 var camera = require('camera-vc0706').use(tessel.port['A']);
+var express = require("express"),
+  exphbs = require('express-handlebars'),
+  bodyParser = require('body-parser');
+
+var app = express();
+
+
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main'
+}));
+app.set('view engine', 'handlebars');
 
 var notificationLED = tessel.led[3]; // Set up an LED to notify when we're taking a picture
 
@@ -35,4 +46,13 @@ camera.on('ready', function() {
 
 camera.on('error', function(err) {
   console.error(err);
+});
+apt.get("/notify", function(req,res) {
+  res.render("main");
+})
+var portNumber = process.env.PORT_NR || 3000;
+
+//start everything up
+app.listen(portNumber, function() {
+  console.log('controlling lights:', portNumber);
 });
