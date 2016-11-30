@@ -16,6 +16,9 @@
     "url": "https://github.com/Aluta97/myWatch/issues"
   },
   "dependencies": {
-    "camera-vc0706": "~0.1.8"
+    "body-parser": "^1.15.2",
+    "camera-vc0706": "~0.1.8",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0"
   }
 }
