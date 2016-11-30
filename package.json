@@ -1,0 +1,21 @@
+{
+  "name": "myWatch",
+  "version": "0.0.0",
+  "description": "myWatch takes a picture when motion is detected and sends it to the user via MMS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aluta97/myWatch.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Aluta97/myWatch/issues"
+  },
+  "dependencies": {
+    "camera-vc0706": "~0.1.8"
+  }
+}
