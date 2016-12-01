@@ -17,6 +17,20 @@
   },
   "dependencies": {
     "camera-vc0706": "~0.1.8",
-    "pir": "~0.1.0"
+    "pir": "~0.1.0",
+    "gprs-sim900": "~0.1.4",
+    "pubnub": "~4.3.2",
+    "tessel": "~0.3.25",
+    "usb": "~1.2.0",
+    "temp": "~0.8.3",
+    "colony-compiler": "~1.0.1",
+    "effess": "0.0.5",
+    "debug": "~2.3.3",
+    "color": "~0.11.4",
+    "colors": "~1.1.2",
+    "structured-clone": "~0.2.2",
+    "humanize": "0.0.9",
+    "hardware-resolve": "~0.1.6",
+    "install": "~0.8.2",
   }
 }
