@@ -1,6 +1,11 @@
 var tessel = require('tessel');
 var PIR = tessel.port['GPIO'].pin['G3'];
 var camera = require('camera-vc0706').use(tessel.port['A']);
+var hardware = tessel.port['D'];
+var gprslib = require('gprs-sim900');
+
+var phoneNumber = '+27603695832'; // Replace the #s with the String representation of the phone number, including country code (1 for USA)
+var message = 'Text from a Tessel!';
 
 var notificationLED = tessel.led[3]; // Set up an LED to notify when we're taking a picture
 
@@ -26,11 +31,33 @@ camera.on('ready', function() {
         // Turn the camera off to end the script
         //camera.disable();
       }
+
+      var gprs = gprslib.use(hardware);
+      gprs.on('ready', function() {
+        console.log('GPRS module connected to Tessel. Searching for network...')
+        //  Give it 10 more seconds to connect to the network, then try to send an SMS
+        setTimeout(function() {
+          console.log('Sending', message, 'to', phoneNumber, '...');
+          // Send message
+          gprs.sendSMS(phoneNumber, image, function smsCallback(err, data) {
+            if (err) {
+              return console.log(err);
+            }
+            var success = data[0] !== -1;
+            console.log('Text sent:', success);
+            if (success) {
+              // If successful, log the number of the sent text
+              console.log('GPRS Module sent text #', data[0]);
+            }
+          });
+        }, 10000);
+      });
+    });
+
     });
 
   });
-
-});
+  //  Port, callback
 
 
 
