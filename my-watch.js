@@ -4,9 +4,9 @@ var camera = require('camera-vc0706').use(tessel.port['A']);
 var hardware = tessel.port['D'];
 var gprslib = require('gprs-sim900');
 
-var phoneNumber = '+27603695832'; // Replace the #s with the String representation of the phone number, including country code (1 for USA)
+var phoneNumber = '+27829278734'; // Replace the #s with the String representation of the phone number, including country code (1 for USA)
 var message = 'Text from a Tessel!';
-var url = 'http://172.18.0.44:3000/alerts'
+var url = 'http://172.18.0.32:5000/alerts'
 
 var gprs = gprslib.use(hardware);
 var notificationLED = tessel.led[3]; // Set up an LED to notify when we're taking a picture
